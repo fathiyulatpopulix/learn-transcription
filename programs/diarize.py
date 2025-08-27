@@ -9,14 +9,19 @@ OUTPUT_FOLDER = "output"
 audio_input_filename = "conversation.wav"
 diarization_output_filename = "diarization.rttm"
 
-load_dotenv(ROOT_FOLDER / ".env") 
+load_dotenv(ROOT_FOLDER / ".env")
 
-audio_file_path = os.path.join(ROOT_FOLDER, INPUT_FOLDER, audio_input_filename) 
-diarization_output_path = os.path.join(ROOT_FOLDER, OUTPUT_FOLDER, diarization_output_filename)
+# check if output folder exists, if not create it
+if not os.path.exists(os.path.join(ROOT_FOLDER, OUTPUT_FOLDER)):
+    os.makedirs(os.path.join(ROOT_FOLDER, OUTPUT_FOLDER))
+
+audio_file_path = os.path.join(ROOT_FOLDER, INPUT_FOLDER, audio_input_filename)
+diarization_output_path = os.path.join(
+    ROOT_FOLDER, OUTPUT_FOLDER, diarization_output_filename
+)
 
 pipeline = Pipeline.from_pretrained(
-    "pyannote/speaker-diarization-3.1",
-    use_auth_token=os.getenv("HF_TOKEN")
+    "pyannote/speaker-diarization-3.1", use_auth_token=os.getenv("HF_TOKEN")
 )
 
 # import torch
