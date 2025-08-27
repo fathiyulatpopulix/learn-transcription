@@ -1,0 +1,12 @@
+[project]
+name = "learn-pyannote"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "librosa>=0.11.0",
+    "openai-whisper>=20250625",
+    "pyannote-audio>=3.3.2",
+    "python-dotenv>=1.1.1",
+]
