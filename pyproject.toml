@@ -9,4 +9,6 @@ dependencies = [
     "openai-whisper>=20250625",
     "pyannote-audio>=3.3.2",
     "python-dotenv>=1.1.1",
+    "soundfile>=0.13.1",
+    "streamlit>=1.49.0",
 ]
