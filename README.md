@@ -1,15 +1,17 @@
 # Speaker Diarization and Transcription Pipeline
 
-This project demonstrates a complete pipeline for automatic speech recognition (ASR) and speaker diarization. Given a single audio file containing a conversation, this script will:
+This project demonstrates a complete pipeline for automatic speech recognition (ASR) and speaker diarization with both command-line and web interface options. Given a single audio file containing a conversation, this application will:
 
 1.  Identify how many speakers are present.
 2.  Determine "who spoke when" (diarization).
 3.  Transcribe what each speaker said (transcription).
+4.  Provide an interactive web interface for easy file upload and result visualization.
 
 This is achieved by combining two powerful, pre-trained models:
 
 - **`pyannote.audio`**: For state-of-the-art speaker diarization.
 - **`openai-whisper`**: For accurate speech-to-text transcription.
+- **`streamlit`**: For the interactive web interface.
 
 ---
 
@@ -80,17 +82,45 @@ Create a `.env` file in the root directory of your project. This file will store
 
 ## Running the Program
 
-Run the program from your terminal:
+You can run this application in two ways:
+
+### Option 1: Web Interface (Recommended)
+
+Run the Streamlit web application for an interactive experience:
+
+```bash
+uv run streamlit run app/st-app.py
+```
+
+This will start a local web server (usually at `http://localhost:8501`) where you can:
+- Upload audio files through a drag-and-drop interface
+- View real-time processing progress
+- Interact with timestamped transcriptions
+- Download results as text files
+- Navigate through audio with visual timeline controls
+
+### Option 2: Command Line Interface
+
+Run the command-line version (if you have a main.py file):
 
 ```bash
 uv run app/main.py
 ```
 
-The first time you run the script, it will download the necessary models (a few hundred MB). Subsequent runs will be faster. The process can take some time, especially on a CPU.
+The first time you run either version, it will download the necessary models (a few hundred MB). Subsequent runs will be faster. The process can take some time, especially on a CPU.
 
-### 4. Understand the Output
+## Understanding the Output
 
-The script will print a timestamped and speaker-labeled transcript of the entire conversation, like this:
+### Web Interface Features
+The Streamlit app provides:
+- **Audio Player**: Listen to the original audio file
+- **Color-coded Transcription**: Each speaker gets a unique color
+- **Timestamp Navigation**: Click segments to jump to specific times
+- **Download Options**: Export transcriptions as text files
+- **Progress Tracking**: Real-time processing updates
+
+### Sample Output Format
+Both interfaces will provide a timestamped and speaker-labeled transcript:
 
 ```
 --- Full Transcription ---

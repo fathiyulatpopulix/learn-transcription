@@ -12,7 +12,7 @@ import io
 import soundfile as sf
 
 # Setup
-ROOT_FOLDER = Path(__file__).parent
+ROOT_FOLDER = Path(__file__).parent.parent
 load_dotenv(ROOT_FOLDER / ".env")
 
 
