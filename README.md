@@ -83,7 +83,7 @@ Create a `.env` file in the root directory of your project. This file will store
 Run the program from your terminal:
 
 ```bash
-uv run programs/main.py
+uv run app/main.py
 ```
 
 The first time you run the script, it will download the necessary models (a few hundred MB). Subsequent runs will be faster. The process can take some time, especially on a CPU.
